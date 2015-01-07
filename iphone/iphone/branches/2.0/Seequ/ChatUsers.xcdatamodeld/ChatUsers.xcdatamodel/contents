@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6248" systemVersion="14A361c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ActivityCoreData" representedClassName="ActivityCoreData" syncable="YES">
+        <attribute name="startTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="callLog" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CallLogInfoCoreData" syncable="YES"/>
+        <relationship name="request" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RequestsInfoCoreData" syncable="YES"/>
+        <relationship name="userInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfoCoreData" syncable="YES"/>
+    </entity>
+    <entity name="CallLogInfoCoreData" representedClassName="CallLogInfoCoreData" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityCoreData" syncable="YES"/>
+    </entity>
+    <entity name="CDGroup" representedClassName="CDGroup" syncable="YES">
+        <attribute name="groupId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="groupMembers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserInfoCoreData" syncable="YES"/>
+        <relationship name="groupOwner" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="UserInfoCoreData" syncable="YES"/>
+    </entity>
+    <entity name="CDMessage" representedClassName="CDMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dt_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDelivered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isGroup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isMediaDownloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isNative" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSend" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="messageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="messageType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="textMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="senderContact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMessageOwner" inverseName="messages" inverseEntity="CDMessageOwner" syncable="YES"/>
+        <relationship name="senderFromGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfoCoreData" syncable="YES"/>
+    </entity>
+    <entity name="CDMessageOwner" representedClassName="CDMessageOwner" syncable="YES">
+        <attribute name="isGroup" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seequId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="groupInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDGroup" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDMessage" inverseName="senderContact" inverseEntity="CDMessage" syncable="YES"/>
+        <relationship name="userInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfoCoreData" syncable="YES"/>
+    </entity>
+    <entity name="InfoCoreData" representedClassName="InfoCoreData" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LocationCoreData" representedClassName="LocationCoreData" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateAbbrev" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeZone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RequestsInfoCoreData" representedClassName="RequestsInfoCoreData" syncable="YES">
+        <attribute name="requestId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityCoreData" syncable="YES"/>
+    </entity>
+    <entity name="UserInfoCoreData" representedClassName="UserInfoCoreData" syncable="YES">
+        <attribute name="billingRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="introduction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorit" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isImageExist" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isMute" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="needToDoubleTake" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="regDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="seeQuId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityCoreData" syncable="YES"/>
+        <relationship name="contactInfoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InfoCoreData" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDGroup" syncable="YES"/>
+        <relationship name="internetInfoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InfoCoreData" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationCoreData" syncable="YES"/>
+        <relationship name="socialInfoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InfoCoreData" syncable="YES"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UserStatusCoreData" syncable="YES"/>
+        <relationship name="userLanguage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLanguageCoreData" syncable="YES"/>
+    </entity>
+    <entity name="UserLanguageCoreData" representedClassName="UserLanguageCoreData" syncable="YES">
+        <attribute name="fourth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="third" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserStatusCoreData" representedClassName="UserStatusCoreData" syncable="YES">
+        <attribute name="isOnline" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="subscription" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ActivityCoreData" positionX="-4581" positionY="-4599" width="128" height="30"/>
+        <element name="CallLogInfoCoreData" positionX="-4500" positionY="-4788" width="128" height="30"/>
+        <element name="CDGroup" positionX="-4142" positionY="-4770" width="128" height="30"/>
+        <element name="CDMessage" positionX="-4005" positionY="-4707" width="128" height="255"/>
+        <element name="CDMessageOwner" positionX="-4275" positionY="-4797" width="128" height="163"/>
+        <element name="InfoCoreData" positionX="-4070" positionY="-4365" width="128" height="73"/>
+        <element name="LocationCoreData" positionX="-4574" positionY="-4387" width="128" height="148"/>
+        <element name="RequestsInfoCoreData" positionX="-4772" positionY="-4689" width="128" height="30"/>
+        <element name="UserInfoCoreData" positionX="-4338" positionY="-4615" width="128" height="30"/>
+        <element name="UserLanguageCoreData" positionX="-4464" positionY="-4209" width="128" height="103"/>
+        <element name="UserStatusCoreData" positionX="-4131" positionY="-4176" width="128" height="73"/>
+    </elements>
+</model>

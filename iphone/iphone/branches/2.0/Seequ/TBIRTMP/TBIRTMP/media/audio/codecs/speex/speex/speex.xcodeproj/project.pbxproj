@@ -1,0 +1,152 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		C6CC5632165638D4001F0829 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		C6CC5638165638D4001F0829 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		C6CC5641165638D4001F0829 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
+		C6CC5642165638D4001F0829 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		C6CC5645165638D4001F0829 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
+		C6CC5646165638D4001F0829 /* libspeex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libspeex; sourceTree = "<group>"; };
+		C6CC565A165638D4001F0829 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		C6CC565C165638D4001F0829 /* symbian */ = {isa = PBXFileReference; lastKnownFileType = folder; path = symbian; sourceTree = "<group>"; };
+		C6CC565D165638D4001F0829 /* ti */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ti; sourceTree = "<group>"; };
+		C6CC565F165638D4001F0829 /* win32 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = win32; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		C6CC562A165638D4001F0829 = {
+			isa = PBXGroup;
+			children = (
+				C6CC5632165638D4001F0829 /* .DS_Store */,
+				C6CC5638165638D4001F0829 /* config.h */,
+				C6CC5641165638D4001F0829 /* doc */,
+				C6CC5642165638D4001F0829 /* include */,
+				C6CC5645165638D4001F0829 /* iphone */,
+				C6CC5646165638D4001F0829 /* libspeex */,
+				C6CC565A165638D4001F0829 /* src */,
+				C6CC565C165638D4001F0829 /* symbian */,
+				C6CC565D165638D4001F0829 /* ti */,
+				C6CC565F165638D4001F0829 /* win32 */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		C6CC5631165638D4001F0829 /* speex */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = C6CC5660165638D4001F0829 /* Build configuration list for PBXLegacyTarget "speex" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/grigorijlavyan/Desktop/Iphone_zangi_rtmp/iphone/iphone/branches/2.0/Zangi/TBIRTMP/TBIRTMP/media/audio/codecs/speex/speex;
+			dependencies = (
+			);
+			name = speex;
+			passBuildSettingsInEnvironment = 1;
+			productName = speex;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		C6CC562C165638D4001F0829 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C6CC562F165638D4001F0829 /* Build configuration list for PBXProject "speex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C6CC562A165638D4001F0829;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6CC5631165638D4001F0829 /* speex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		C6CC562D165638D4001F0829 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C6CC562E165638D4001F0829 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		C6CC5661165638D4001F0829 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = speex;
+			};
+			name = Debug;
+		};
+		C6CC5662165638D4001F0829 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = speex;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6CC562F165638D4001F0829 /* Build configuration list for PBXProject "speex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CC562D165638D4001F0829 /* Debug */,
+				C6CC562E165638D4001F0829 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6CC5660165638D4001F0829 /* Build configuration list for PBXLegacyTarget "speex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CC5661165638D4001F0829 /* Debug */,
+				C6CC5662165638D4001F0829 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6CC562C165638D4001F0829 /* Project object */;
+}
